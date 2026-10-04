@@ -1,11 +1,23 @@
-Package: forestdiameterdistribution
+Package: forestdbh
 Type: Project
-Title: Diameter Distribution Modelling for Tropical Forest Inventory Data
-Version: 0.1.0
-Author: Oyediran Abiodun
-Description: Fits 12 candidate probability distributions to tree diameter at
-    breast height (DBH) data by maximum likelihood and ranks them with
-    Kolmogorov-Smirnov, Anderson-Darling and Cramer-von Mises statistics.
+Title: Forest Diameter Distribution Modelling
+Version: 1.0.0
+Authors@R:
+    person("Abiodun", "Oyediran", role = c("aut", "cre"),
+           email = "oyediranabiodun781@gmail.com")
+Description: An R pipeline that fits twelve candidate probability
+    distributions to tree diameter at breast height (DBH) data by
+    maximum likelihood, ranks them with Kolmogorov-Smirnov,
+    Anderson-Darling and Cramer-von Mises statistics, and produces
+    diagnostic plots and parameter tables.
 License: MIT + file LICENSE
-Depends: R (>= 4.0.0)
-Imports: fitdistrplus, goftest
+Encoding: UTF-8
+Depends:
+    R (>= 4.0)
+Imports:
+    fitdistrplus,
+    goftest
+Suggests:
+    testthat
+URL: https://github.com/abiodun-oyediran/01-forest-diameter-distribution-modelling
+BugReports: https://github.com/abiodun-oyediran/01-forest-diameter-distribution-modelling/issues
