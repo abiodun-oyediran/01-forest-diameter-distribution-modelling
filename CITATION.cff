@@ -1,0 +1,22 @@
+cff-version: 1.2.0
+message: "If you use this code, please cite it as below."
+authors:
+  - family-names: "Oyediran"
+    given-names: "Abiodun"
+    orcid: "https://orcid.org/0000-0000-0000-0000"   # replace with your ORCID
+title: "Forest Diameter Distribution Modelling"
+abstract: >-
+  An R pipeline that fits twelve candidate probability distributions to tree
+  diameter at breast height (DBH) data by maximum likelihood, ranks them with
+  Kolmogorov–Smirnov, Anderson–Darling and Cramér–von Mises statistics, and
+  produces diagnostic plots and parameter tables.
+version: 1.0.0
+date-released: "2026-01-01"    # adjust
+url: "https://github.com/<your-username>/01-forest-diameter-distribution-modelling"
+license: MIT
+keywords:
+  - forest biometrics
+  - diameter distribution
+  - probability distributions
+  - maximum likelihood
+  - R
