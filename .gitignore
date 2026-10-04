@@ -1,0 +1,35 @@
+# R
+.Rproj.user/
+.Rhistory
+.RData
+.Ruserdata
+*.Rproj
+
+# Rendered outputs
+*.html
+*.pdf
+!docs/**/*.pdf
+
+# Renv (uncomment if you adopt renv)
+# renv/library/
+# renv/staging/
+# renv/local/
+# renv/cellar/
+# renv/lock/
+# renv/python/
+# renv/sandbox/
+# renv/.gitignore
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Editor
+.vscode/
+.idea/
+*.swp
+
+# Keep placeholder folders tracked
+!outputs/figures/.gitkeep
+!outputs/tables/.gitkeep
+!outputs/models/.gitkeep
