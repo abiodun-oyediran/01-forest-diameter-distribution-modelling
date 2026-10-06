@@ -16,7 +16,8 @@
 #           summary; adapted from my graph snippet: Weibull/Gamma histogram].
 #           Corrections marked [FIX]: dead Johnson SB branches removed (B2),
 #           Q-Q panel state (B4), snippet objects (B5), summary text (B3),
-#           failed fits excluded from rankings (B7), model legend (B9).
+#           failed fits excluded from rankings (B7), model legend (B9),
+#           clipped Gamma curve (B10).
 # =============================================================================
 
 if(!exists("gof") || !exists("fits") || !exists("make_cdf_pdf") || !exists("out_fig_dir")) {
@@ -397,9 +398,14 @@ cat("\nAll plots are high-resolution (300 DPI) PNG files suitable for publicatio
 if(!is.null(fits$Weibull2) && !is.null(fits$Gamma2)) {
   png(file.path(out_fig_dir, "histogram_weibull2_gamma2.png"), width = 8, height = 6, units = "in", res = 300)
   x <- seq(min(data), max(data), 1)
-  hist(data, prob = TRUE, xlab = "Dbh class (cm)", ylab = "Relative frequency of trees", main = "")
-  lines(x, dweibull(x, shape = fits$Weibull2$estimate["shape"], scale = fits$Weibull2$estimate["scale"]), lty = 1, lwd = 2)
-  lines(x, dgamma(x, shape = fits$Gamma2$estimate["shape"], rate = fits$Gamma2$estimate["rate"]), lty = 2, lwd = 2)
+  y_weibull <- dweibull(x, shape = fits$Weibull2$estimate["shape"], scale = fits$Weibull2$estimate["scale"])
+  y_gamma   <- dgamma(x, shape = fits$Gamma2$estimate["shape"], rate = fits$Gamma2$estimate["rate"])
+  # [FIX B10] y-axis sized from the histogram and both curves; before, the Gamma
+  # peak could be clipped at the top of the plot
+  hist(data, prob = TRUE, xlab = "Dbh class (cm)", ylab = "Relative frequency of trees", main = "",
+       ylim = c(0, 1.05 * max(hist(data, plot = FALSE)$density, y_weibull, y_gamma)))
+  lines(x, y_weibull, lty = 1, lwd = 2)
+  lines(x, y_gamma, lty = 2, lwd = 2)
   legend("topright", c("2P Weibull", "Gamma 2p"), lty = c(1, 2), lwd = c(2, 2))
   dev.off()
   cat("✓ Weibull / Gamma histogram saved as:", file.path(out_fig_dir, "histogram_weibull2_gamma2.png"), "\n")

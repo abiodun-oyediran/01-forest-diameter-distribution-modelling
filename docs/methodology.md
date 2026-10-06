@@ -139,6 +139,7 @@ else keeps the original logic, function names and variable names.
 | B7 | `rowSums(..., na.rm = TRUE)` gave failed fits a rank sum of 0 (best) | Rank sum is `NA` unless all three ranks exist; such models sort last |
 | B8 | `cvm.test` statistic carried a name that leaked into data-frame row names | Converted with `as.numeric` |
 | B9 | All-models plot had a legend that did not name the models | Legend names every model; colour and line type are unique per model |
+| B10 | In the Weibull/Gamma histogram the y-axis was sized from the histogram alone, so the Gamma peak was clipped | y-axis limit covers the histogram and both curves |
 | — | `file.choose()` and working-directory outputs | Input path and output folders via `DBH_CSV`, `OUT_FIG_DIR`, `OUT_TAB_DIR` |
 | — | Eight packages loaded, six unused | Only `fitdistrplus` and `goftest` are loaded |
 | — | KS ties warning | `suppressWarnings` around `ks.test` (p-value is not used) |
