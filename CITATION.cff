@@ -11,7 +11,7 @@ abstract: >-
   Kolmogorov–Smirnov, Anderson–Darling and Cramér–von Mises statistics, and
   produces diagnostic plots and parameter tables.
 version: 1.0.0
-date-released: "2026-01-01"    # adjust
+date-released: "2026-10-01"
 url: "https://github.com/abiodun-oyediran/01-forest-diameter-distribution-modelling"
 license: MIT
 keywords:
