@@ -5,18 +5,24 @@ on:
     branches: [ main ]
   pull_request:
     branches: [ main ]
+  workflow_dispatch:
 
 jobs:
   run-pipeline:
-    runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@v4
+    runs-on: ubuntu-24.04
 
-      - uses: r-lib/actions/setup-r@v2
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v5
+
+      - name: Setup R
+        uses: r-lib/actions/setup-r@v2
         with:
           r-version: '4.3.3'
+          use-public-rspm: true
 
-      - uses: r-lib/actions/setup-r-dependencies@v2
+      - name: Install dependencies
+        uses: r-lib/actions/setup-r-dependencies@v2
         with:
           packages: |
             any::fitdistrplus
@@ -26,13 +32,19 @@ jobs:
         run: Rscript run_all.R
 
       - name: Upload figures
-        uses: actions/upload-artifact@v4
+        uses: actions/upload-artifact@v5
         with:
           name: figures
           path: outputs/figures/
 
       - name: Upload tables
-        uses: actions/upload-artifact@v4
+        uses: actions/upload-artifact@v5
         with:
           name: tables
           path: outputs/tables/
+
+      - name: Verify outputs exist
+        run: |
+          test -f outputs/tables/goodness_of_fit_results.csv
+          test -f outputs/tables/parameters_wide_format.csv
+          echo "Outputs verified."
