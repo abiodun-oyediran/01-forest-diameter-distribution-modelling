@@ -1,4 +1,4 @@
-![R pipeline](https://github.com/abiodun-oyediran/01-forest-diameter-distribution-modelling/actions/workflows/R-CMD-check.yml/badge.svg)
+[![R pipeline check](https://github.com/abiodun-oyediran/01-forest-diameter-distribution-modelling/actions/workflows/pipeline.yml/badge.svg)](https://github.com/abiodun-oyediran/01-forest-diameter-distribution-modelling/actions/workflows/pipeline.yml)
 # Forest Diameter Distribution Modelling
 ![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)
 ![Language: R](https://img.shields.io/badge/language-R-blue.svg)
