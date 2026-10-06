@@ -1,5 +1,9 @@
+![R pipeline](https://github.com/abiodun-oyediran/01-forest-diameter-distribution-modelling/actions/workflows/R-CMD-check.yml/badge.svg)
 # Forest Diameter Distribution Modelling
-
+![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)
+![Language: R](https://img.shields.io/badge/language-R-blue.svg)
+![R version](https://img.shields.io/badge/R-%3E%3D%204.0-276DC3.svg)
+![Status](https://img.shields.io/badge/status-active-success.svg)
 ## Overview
 
 An R pipeline that fits twelve candidate probability distributions to tree
